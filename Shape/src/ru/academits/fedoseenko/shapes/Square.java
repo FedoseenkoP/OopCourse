@@ -1,12 +1,14 @@
-package ru.academits.fedoseenko.shape;
-
-import java.util.Objects;
+package ru.academits.fedoseenko.shapes;
 
 public class Square implements Shape {
     private final double sideLength;
 
     public Square(double sideLength) {
         this.sideLength = sideLength;
+    }
+
+    public double getSideLength() {
+        return sideLength;
     }
 
     @Override
@@ -32,20 +34,26 @@ public class Square implements Shape {
     @Override
     public String toString() {
         return "Квадрат{" +
-                "Сторона квадрата=" + sideLength +
+                "Сторона квадрата = " + sideLength +
                 '}';
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
         Square square = (Square) o;
-        return Double.compare(square.sideLength, sideLength) == 0;
+        return sideLength == square.sideLength;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(sideLength);
+        return Double.hashCode(sideLength);
     }
 }

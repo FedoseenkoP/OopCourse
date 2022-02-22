@@ -1,20 +1,10 @@
-package ru.academits.fedoseenko.shape_main;
+package ru.academits.fedoseenko.shapes_main;
 
-import ru.academits.fedoseenko.shape.*;
-
-import java.util.Arrays;
+import ru.academits.fedoseenko.methods.Area;
+import ru.academits.fedoseenko.methods.Perimeter;
+import ru.academits.fedoseenko.shapes.*;
 
 public class Main {
-    public static Shape getMaxAreaFigure (Shape[] array) {
-        Arrays.sort(array, (o1, o2) -> (int) (o2.getArea() - o1.getArea()));
-        return array[0];
-    }
-
-    public static Shape getSecondMaxPerimeterFigure (Shape[] array) {
-        Arrays.sort(array, (o1, o2) -> (int) (o2.getPerimeter() - o1.getPerimeter()));
-        return array[1];
-    }
-
     public static void main(String[] args) {
         Square square1 = new Square(12.3);
 
@@ -44,7 +34,7 @@ public class Main {
         System.out.println("Площадь окружности = " + circle1.getArea());
         System.out.println("Периметр окружности = " + circle1.getPerimeter());
 
-        Shape[] shape = new Shape[]{
+        Shape[] shapes = {
                 new Square(13.2),
                 new Square(18.9),
                 new Triangle(-4.5, -3.7, -14.5, 15.8, 10.6, 12.3),
@@ -54,9 +44,13 @@ public class Main {
                 new Rectangle(21.4, 8.5),
                 new Circle(17.4),
                 new Circle(10.5),
-                new Circle(21.2)};
+                new Circle(21.2)
+        };
 
-        System.out.println("Фигура с максимальной площадью: " + getMaxAreaFigure(shape));
-        System.out.println("Фигура со вторым по величине периметром: " + getSecondMaxPerimeterFigure(shape));
+        Area area = new Area();
+        System.out.println("Фигура с максимальной площадью: " + area.getArea(shapes, 1));
+
+        Perimeter perimeter = new Perimeter();
+        System.out.println("Фигура со вторым по величине периметром: " + perimeter.getPerimeter(shapes, 2));
     }
 }

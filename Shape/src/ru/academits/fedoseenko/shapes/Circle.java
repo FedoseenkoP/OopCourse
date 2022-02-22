@@ -1,12 +1,14 @@
-package ru.academits.fedoseenko.shape;
-
-import java.util.Objects;
+package ru.academits.fedoseenko.shapes;
 
 public class Circle implements Shape {
     private final double radius;
 
     public Circle(double radius) {
         this.radius = radius;
+    }
+
+    public double getRadius() {
+        return radius;
     }
 
     @Override
@@ -21,7 +23,7 @@ public class Circle implements Shape {
 
     @Override
     public double getArea() {
-        return Math.PI * Math.pow(radius, 2);
+        return Math.PI * radius * radius;
     }
 
     @Override
@@ -32,20 +34,26 @@ public class Circle implements Shape {
     @Override
     public String toString() {
         return "Окружность{" +
-                "радиус=" + radius +
+                "радиус = " + radius +
                 '}';
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
         Circle circle = (Circle) o;
-        return Double.compare(circle.radius, radius) == 0;
+        return radius == circle.radius;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(radius);
+        return Double.hashCode(radius);
     }
 }

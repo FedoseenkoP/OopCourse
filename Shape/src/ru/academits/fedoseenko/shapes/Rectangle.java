@@ -1,6 +1,4 @@
-package ru.academits.fedoseenko.shape;
-
-import java.util.Objects;
+package ru.academits.fedoseenko.shapes;
 
 public class Rectangle implements Shape {
     private final double width;
@@ -34,21 +32,27 @@ public class Rectangle implements Shape {
     @Override
     public String toString() {
         return "Прямоугольник{" +
-                "ширина=" + width +
-                ", высота=" + height +
+                "ширина = " + width +
+                ", высота = " + height +
                 '}';
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
         Rectangle rectangle = (Rectangle) o;
-        return Double.compare(rectangle.width, width) == 0 && Double.compare(rectangle.height, height) == 0;
+        return width == rectangle.width && height == rectangle.height;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(width, height);
+        return Double.hashCode(getArea());
     }
 }
