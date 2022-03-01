@@ -79,7 +79,12 @@ public class Triangle implements Shape {
 
     @Override
     public int hashCode() {
-        return Double.hashCode(getArea());
+        final int prime = 37;
+        int hash = 1;
+        hash = prime * hash + Double.hashCode(getSideLength(x1, y1, x2, y2));
+        hash = prime * hash + Double.hashCode(getSideLength(x3, y3, x2, y2));
+        hash = prime * hash + Double.hashCode(getSideLength(x3, y3, x1, y1));
+        return hash;
     }
 
     @Override

@@ -52,5 +52,15 @@ public class Main {
 
         Perimeter perimeter = new Perimeter();
         System.out.println("Фигура со вторым по величине периметром: " + perimeter.getPerimeter(shapes, 2));
+
+        System.out.println("Радиус окружности = " + circle1.getRadius());
+        System.out.println("Сторона квадрата = " + square1.getSideLength());
+        System.out.printf("Координаты вершин треугольника = (%.1f;%.1f;%.1f;%.1f;%.1f;%.1f)",
+                triangle1.getX1(),
+                triangle1.getY1(),
+                triangle1.getX2(),
+                triangle1.getY2(),
+                triangle1.getX3(),
+                triangle1.getY3());
     }
 }
