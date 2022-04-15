@@ -1,11 +1,6 @@
 package ru.academits.fedoseenko.shapes;
 
-public class Square implements Shape {
-    private final double sideLength;
-
-    public Square(double sideLength) {
-        this.sideLength = sideLength;
-    }
+public record Square(double sideLength) implements Shape {
 
     public double getSideLength() {
         return sideLength;
@@ -33,9 +28,7 @@ public class Square implements Shape {
 
     @Override
     public String toString() {
-        return "Квадрат{" +
-                "Сторона квадрата = " + sideLength +
-                '}';
+        return "Square (" + "Сторона квадрата = " + sideLength + ')';
     }
 
     @Override

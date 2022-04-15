@@ -33,7 +33,7 @@ public class Range {
         return number >= from && to >= number;
     }
 
-    public Range getRangesIntersection(Range range) {
+    public Range getIntersection(Range range) {
         if (from >= range.to || to <= range.from) {
             return null;
         }
@@ -41,17 +41,21 @@ public class Range {
         return new Range(Math.max(from, range.from), Math.min(to, range.to));
     }
 
-    public Range[] getRangesUnion(Range range) {
+    public Range[] getUnion(Range range) {
         if (to < range.from || range.to < from) {
-            return new Range[]{new Range(this.from, this.to), new Range(range.from, range.to)};
+            return new Range[]{new Range(from, to), new Range(range.from, range.to)};
         }
 
         return new Range[]{new Range(Math.min(from, range.from), Math.max(to, range.to))};
     }
 
-    public Range[] getRangesDifference(Range range) {
-        if (from >= range.to || to <= range.from || from >= range.from && to <= range.to) {
-            return null;
+    public Range[] getDifference(Range range) {
+        if (from >= range.to || to <= range.from) {
+            return new Range[]{new Range(from, to)};
+        }
+
+        if (from >= range.from && to <= range.to) {
+            return new Range[0];
         }
 
         if (from >= range.from) {
@@ -67,7 +71,6 @@ public class Range {
 
     @Override
     public String toString() {
-        return "(" + from +
-                ", " + to + ")";
+        return "(" + from + ", " + to + ")";
     }
 }
