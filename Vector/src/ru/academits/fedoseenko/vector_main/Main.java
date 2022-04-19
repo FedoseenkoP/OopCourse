@@ -18,17 +18,17 @@ public class Main {
         Vector vector4 = new Vector(8, new double[]{9, 14, 47, 32, 58, 36});
         System.out.println("Вектор 4 = " + vector4);
 
-        System.out.println("Размерность вектора = " + getSize(vector2));
+        System.out.println("Размерность вектора = " + vector2.getSize());
 
-        Vector vector5 = new Vector(new double[]{3, 8, 6, 5});
+        Vector vector5 = new Vector(new double[]{3, 8, 6, 5, 14, 15, 28, 32});
 
-        System.out.println("Сумма векторов = " + vector2.getAmount(vector5));
+        System.out.println("Сумма векторов = " + vector2.addVector(vector5));
 
-        System.out.println("Разность векторов = " + vector2.getDifference(vector5));
+        System.out.println("Разность векторов = " + vector2.subtractVector(vector5));
 
-        System.out.println("Умножение вектора на скаляр = " + vector2.getMultiplicationByScalar(2));
+        System.out.println("Умножение вектора на скаляр = " + vector2.multiplyByScalar(2));
 
-        System.out.println("Развернутый вектор = " + vector2.getUnfoldedVector());
+        System.out.println("Развернутый вектор = " + vector2.expandVector());
 
         System.out.println("Длина вектора = " + vector2.getLength());
 
@@ -39,8 +39,10 @@ public class Main {
         Vector vector6 = new Vector(vector4);
         Vector vector7 = new Vector(vector2);
 
-        System.out.println("Сумма векторов = " + getAmount(vector6, vector7));
+        System.out.println("Сумма векторов = " + getSum(vector6, vector7));
 
         System.out.println("Разность векторов = " + getDifference(vector6, vector7));
+
+        System.out.println("Скалярное произведение векторов = " + getVectorsDotProduct(vector6, vector7));
     }
 }
