@@ -12,7 +12,7 @@ public class Main {
         range1.setTo(2.9);
         range2.setFrom(3.2);
 
-        System.out.printf("Диапазон 1 = [(%.1f, %.1f)]\nДиапазон 2 = [(%.1f, %.1f)]\n",
+        System.out.printf("Диапазон 1 = [(%.1f, %.1f)]%nДиапазон 2 = [(%.1f, %.1f)]%n",
                 range1.getFrom(), range1.getTo(), range2.getFrom(), range2.getTo());
 
         System.out.println("Длина диапазона 1 = " + range1.getLength());
@@ -20,12 +20,12 @@ public class Main {
         boolean isBelong = range1.isInside(15.0);
         System.out.println("Точка принадлежит диапазону 1 = " + isBelong);
 
-        Range range3 = range1.getIntersection(range2);
+        Range intersection = range1.getIntersection(range2);
 
-        System.out.println("Интервал пересечения двух интервалов = [" + range3 + "]");
+        System.out.println("Диапазон пересечения двух диапазонов = [" + intersection + "]");
 
-        System.out.println("Интервал(ы) объединения = " + Arrays.toString(range1.getUnion(range2)));
+        System.out.println("Диапазон(ы) объединения = " + Arrays.toString(range1.getUnion(range2)));
 
-        System.out.println("Разность интервалов = " + Arrays.toString(range1.getDifference(range2)));
+        System.out.println("Разность диапазонов = " + Arrays.toString(range1.getDifference(range2)));
     }
 }
